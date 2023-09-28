@@ -1,14 +1,44 @@
-.zip-code{
-    margin: 40px auto  10px 10px;
-}
+
 
 input {
     width: 300px;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    
+  }
+
+#weather-info {
+    text-align: center;
+    color: yellow;
     position: relative;
-  
+}
+
+#previous-city-list {
+    width: 50px; 
+}
+
+.list-group {
+    display: inline-table;
+    border-style: solid;
+    border-color: skyblue;
+    margin-left: 20px;
+    overflow-y: auto
+}
+
+#forecast {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: yellow;
+    color: blue;
 
 }
