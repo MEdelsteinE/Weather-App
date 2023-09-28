@@ -9,7 +9,11 @@ $(function () {
         $("#description").text(data.weather[0].description);
         $("#humidity").text(data.main.humidity);
         
-        // Call the forecast API or any other necessary functions
+        var iconCode = data.weather[0].icon;
+        var iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+  
+        $("#weather-icon").attr("src", iconUrl);
+       
         forecastApi(city);
       })
       .catch(function (error) {
@@ -20,6 +24,15 @@ $(function () {
 
   // Retrieve the array of previous cities from local storage, or initialize an empty array
   var previousCities = JSON.parse(localStorage.getItem("previousCities")) || [];
+
+  function addClickListenersToPreviousCities() {
+    $("#previous-city-list li").each(function(index) {
+      $(this).click(function() {
+        var selectedCity = $(this).text();
+        fetchWeather(selectedCity);
+      });
+    });
+  }
 
   // Display the last 5 previous cities or "No Previous History" if the array is empty
   if (previousCities.length > 0) {
@@ -72,16 +85,19 @@ function forecastApi(city) {
           var date = weather[i].dt_txt.split(" ")[0];
           var temperature = weather[i].main.temp;
           var description = weather[i].weather[0].description;
-
-          // Create a card element
+          var iconCode = weather[i].weather[0].icon;
+          
+          var picUrl = 'https://openweathermap.org/img/wn/${iconCode}.png';
+          
           var humidityValue = $('.humidity').textContent
           var card = `
             <div class="card">
               <div class="card-body">
                 <h1 class="card-title">${date}</h1>
+                <img src="${picUrl}" alt="Weather Icon"> <
                 <p class="card-text">Temperature: ${temperature}&deg;C</p>
                 <p class="card-text">Description: ${description}</p>
-                <p class="card-text">Humidity: ${humidityValue}</p>
+                 <p class="card-text">Humidity: ${humidityValue}</p>
               </div>
             </div>
           `;
