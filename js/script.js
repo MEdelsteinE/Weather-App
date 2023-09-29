@@ -61,6 +61,10 @@ $(function () {
       $("#previous-city-list").append(`<li class = "list-group-item list-group-item-warning">${previousCities[i]}</li>`);
     }
 
+    $("#previous-city-list").on("click", "li", function(){
+      const cityName = $(this).text();
+    });
+
     todayApi(city);
   });
 
@@ -94,7 +98,7 @@ function forecastApi(city) {
             <div class="card">
               <div class="card-body">
                 <h1 class="card-title">${date}</h1>
-                <img src="${picUrl}" alt="Weather Icon"> <
+                <img src="${picUrl}" alt="Weather Icon"> 
                 <p class="card-text">Temperature: ${temperature}&deg;C</p>
                 <p class="card-text">Description: ${description}</p>
                  <p class="card-text">Humidity: ${humidityValue}</p>
