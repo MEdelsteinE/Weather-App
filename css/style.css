@@ -1,24 +1,26 @@
 
-
-.flex-me {
-    display: flex;
-}
-
 input {
     width: 300px;
 }
 
 .row {
     display: flex; 
-  justify-content: space-between; 
+     justify-content: space-between; 
 }
+
+/* .col-lg-9 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end
+  } */
+  
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    
 }
 
 #weather-info {
@@ -26,15 +28,13 @@ input {
     color: yellow;
     
 }
-
-
-
 .list-group {
-    display: flex;
+    display: inline-table;
     border-style: solid;
     border-color: skyblue;
     margin-left: 20px;
-    overflow-y: auto
+    overflow-y: auto;
+    cursor: pointer;
 }
 
 #forecast {
@@ -49,7 +49,3 @@ input {
     color: blue;
     margin-right: 10px;
 }
-
-.col-lg-4 {
-    flex-basis: 30%; 
-  }
