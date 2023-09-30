@@ -1,3 +1,9 @@
+
+
+.flex-me {
+    display: flex;
+}
+
 input {
     width: 300px;
 }
@@ -21,12 +27,10 @@ input {
     
 }
 
-#previous-city-list {
-    width: 50px; 
-}
+
 
 .list-group {
-    display: inline-table;
+    display: flex;
     border-style: solid;
     border-color: skyblue;
     margin-left: 20px;
